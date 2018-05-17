@@ -82,7 +82,7 @@
                                     <constraint firstItem="sXz-eU-IdB" firstAttribute="leading" secondItem="60K-KK-gzt" secondAttribute="leading" id="fe1-Su-5OF"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTR-4k-VoY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTR-4k-VoY">
                                 <rect key="frame" x="0.0" y="75" width="375" height="543"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-II-Ncn" userLabel="TopView">
@@ -373,10 +373,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="wd1-II-Ncn" firstAttribute="centerX" secondItem="qTR-4k-VoY" secondAttribute="centerX" id="CID-0t-Buh"/>
-                                    <constraint firstAttribute="trailing" secondItem="wd1-II-Ncn" secondAttribute="trailing" id="CVc-JO-Umy"/>
-                                    <constraint firstAttribute="bottom" secondItem="wd1-II-Ncn" secondAttribute="bottom" constant="-747" id="GBv-zL-eAJ"/>
                                     <constraint firstItem="wd1-II-Ncn" firstAttribute="top" secondItem="qTR-4k-VoY" secondAttribute="top" id="K66-DZ-DWK"/>
-                                    <constraint firstItem="wd1-II-Ncn" firstAttribute="leading" secondItem="qTR-4k-VoY" secondAttribute="leading" id="d49-tg-3OM"/>
+                                    <constraint firstItem="wd1-II-Ncn" firstAttribute="width" secondItem="qTR-4k-VoY" secondAttribute="width" id="Y9y-yD-zrn"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
