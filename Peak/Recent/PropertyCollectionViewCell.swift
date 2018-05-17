@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol PropertyCollectionViewCellDelegate {
+    @objc optional func didClickStarButton(property: Property)
+    
+}
+
 class PropertyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -25,10 +30,14 @@ class PropertyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var property: Property!
     
+    var delegate: PropertyCollectionViewCellDelegate?
     
     //setup of collectionViewCell
     func generateCell(property: Property) {
+        
+        self.property = property
         
         titleLabel.text = property.title
         roomLabel.text = "\(property.numberOfRooms)"
@@ -37,10 +46,42 @@ class PropertyCollectionViewCell: UICollectionViewCell {
         
         priceLabel.text = "\(property.price)"
         priceLabel.sizeToFit()
+        
+        //sold status
+        if property.isSold {
+            soldImageView.isHidden = false
+        }
+        else
+        {
+            soldImageView.isHidden = true
+        }
+        
+        //topAd status
+        if property.inTopUntil != nil && property.inTopUntil! > Date() {
+            topAdImageView.isHidden = false
+        }
+        else
+        {
+            topAdImageView.isHidden = true
+        }
+        
+        //image
+        if property.imageLink != "" && property.imageLink != nil
+        {
+            //download image
+        }
+        else
+        {
+            self.imageView.image = UIImage(named: "propertyPlaceholder")
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            
+        }
+        
     }
     
     @IBAction func starButtonPressed(_ sender: Any) {
-        
+        delegate!.didClickStarButton!(property: property)
     }
     
     
