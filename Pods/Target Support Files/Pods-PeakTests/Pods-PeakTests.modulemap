@@ -1,0 +1,6 @@
+framework module Pods_PeakTests {
+  umbrella header "Pods-PeakTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
